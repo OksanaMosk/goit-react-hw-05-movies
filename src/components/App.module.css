@@ -1,0 +1,28 @@
+.header {
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 1100;
+  height: 16vh;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: rgb(50, 50, 53);
+}
+
+.headerLink {
+  text-transform: uppercase;
+  color: #858592b3;
+  text-decoration: none;
+}
+
+.headerLink:focus,
+.headerLink:hover {
+  color: rgb(207, 180, 130);
+}
+.headerLink:active {
+  color: orange;
+}

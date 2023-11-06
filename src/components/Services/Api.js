@@ -24,7 +24,7 @@
 //   return response;
 // }
 
-export const MovieTrendingDay = () => {
+export const fetchMovieTrendingDay = () => {
   const options = {
     method: 'GET',
     headers: {
@@ -43,7 +43,7 @@ export const MovieTrendingDay = () => {
     .catch(err => console.error(err));
 };
 
-export const MovieSearch = () => {
+export const fetchMovieSearch = () => {
   const options = {
     method: 'GET',
     headers: {
@@ -63,7 +63,7 @@ export const MovieSearch = () => {
     .catch(err => console.error(err));
 };
 
-export const MovieDetails = fetghID => {
+export const fetchMovieDetails = fetghID => {
   const options = {
     method: 'GET',
     headers: {
@@ -84,7 +84,7 @@ export const MovieDetails = fetghID => {
     .catch(err => console.error(err));
 };
 
-export const MovieCredits = fetghID => {
+export const fetchMovieCredits = fetghID => {
   const options = {
     method: 'GET',
     headers: {
@@ -104,7 +104,7 @@ export const MovieCredits = fetghID => {
     .catch(err => console.error(err));
 };
 
-export const MovieReviews = fetghID => {
+export const fetchMovieReviews = fetghID => {
   const options = {
     method: 'GET',
     headers: {

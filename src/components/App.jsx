@@ -1,28 +1,43 @@
+import { NavLink, Route, Routes } from 'react-router-dom';
 import {
-  MovieTrendingDay,
-  MovieSearch,
-  MovieDetails,
-  MovieCredits,
-  MovieReviews,
+  fetchMovieSearch,
+  fetchMovieTrendingDay,
+  fetchMovieDetails,
+  fetchMovieCredits,
+  fetchMovieReviews,
 } from './Services/Api';
+import css from './App.module.css';
+import Home from 'pages/MoviesHomePage/MoviesHomePage';
+import Movies from 'pages/MoviesPage/MoviesPage';
+import MovieDetails from 'pages/MovieDetailsPage/MovieDetailsPage';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    ></div>
+    <div>
+      <header className={css.header}>
+        <NavLink className={css.headerLink} to="/">
+          Home
+        </NavLink>
+        <NavLink className={css.headerLink} to="/movies">
+          Movies
+        </NavLink>
+        <NavLink className={css.headerLink} to="/movies/:movieId">
+          MovieDetails
+        </NavLink>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies/" element={<Movies />} />
+          <Route path="/movies/:movieId/" element={<MovieDetails />} />
+        </Routes>
+      </main>
+    </div>
   );
 };
 
-console.log(MovieTrendingDay());
-console.log(MovieSearch());
-console.log(MovieDetails());
-console.log(MovieCredits());
-console.log(MovieReviews());
+console.log(fetchMovieTrendingDay());
+console.log(fetchMovieSearch());
+console.log(fetchMovieDetails());
+console.log(fetchMovieCredits());
+console.log(fetchMovieReviews());
