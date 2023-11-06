@@ -1,3 +1,11 @@
+import {
+  MovieTrendingDay,
+  MovieSearch,
+  MovieDetails,
+  MovieCredits,
+  MovieReviews,
+} from './Services/Api';
+
 export const App = () => {
   return (
     <div
@@ -7,10 +15,14 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
       }}
-    >
-      React homework template
-    </div>
+    ></div>
   );
 };
+
+console.log(MovieTrendingDay());
+console.log(MovieSearch());
+console.log(MovieDetails());
+console.log(MovieCredits());
+console.log(MovieReviews());
