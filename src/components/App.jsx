@@ -21,15 +21,15 @@ export const App = () => {
         <NavLink className={css.headerLink} to="/movies">
           Movies
         </NavLink>
-        <NavLink className={css.headerLink} to="/movies/:movieId">
+        {/* <NavLink className={css.headerLink} to="/movies/:movieId/*">
           MovieDetails
-        </NavLink>
+        </NavLink> */}
       </header>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies/" element={<Movies />} />
-          <Route path="/movies/:movieId/" element={<MovieDetails />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetails />} />
         </Routes>
       </main>
     </div>

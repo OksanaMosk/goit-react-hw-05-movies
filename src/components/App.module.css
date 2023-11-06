@@ -3,12 +3,13 @@
   left: 0;
   position: sticky;
   z-index: 1100;
-  height: 16vh;
+  height: 8vh;
   display: flex;
-  justify-content: center;
-  gap: 50px;
+  padding-left: 80px;
+  justify-content: left;
+  gap: 100px;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   background-color: rgb(50, 50, 53);
 }
