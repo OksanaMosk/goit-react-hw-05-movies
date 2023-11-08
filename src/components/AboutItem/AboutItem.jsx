@@ -1,36 +1,33 @@
-import { NavLink } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
-const AboutItem = movieID => {
+const AboutItem = ({ movie }) => {
   const {
-    movieId,
-    name,
-    title,
-    overview,
+    poster_path,
     genres,
-    cast,
-    reviews,
+    title,
+    name,
+    overview,
     vote_average,
     vote_count,
-    poster_path,
-  } = useParams();
+  } = movie;
+  // console.log(movieId);
+  const movieGenres =
+    movie !== null
+      ? movie.genres.map(genre => genre.name).join(', ')
+      : 'Unknown';
+
   return (
     <div>
+      <p>{genres}</p>
+      <p>стороння вставка</p>
       <h1>About</h1>
+      <h2> {title ? title : name}</h2>
 
-      <NavLink key={movieId} to={`/movies/${movieId}`}>
-        <li key={movieId} to={`/movies/${movieId}`}>
-          <h2> {title ? title : name}</h2>
-          <p>{movieId}</p>
-          <p>{genres}</p>
-          <p>{overview}</p>
-          <p>{cast}</p>
-          <p>{reviews}</p>
-          <p>{vote_average}</p>
-          <p>{vote_count}</p>
-          <p>{poster_path}</p>
-        </li>
-      </NavLink>
+      <p>{overview}</p>
+      <p>{vote_average}</p>
+      <p>{vote_count}</p>
+      <p>{poster_path}</p>
+      <p>{movieGenres}</p>
     </div>
   );
 };

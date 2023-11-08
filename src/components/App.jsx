@@ -9,7 +9,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import css from './App.module.css';
 import Home from 'pages/MoviesHomePage/MoviesHomePage';
 import Movies from 'pages/MoviesPage/MoviesPage';
-import MovieDetails from 'pages/MovieDetailsPage/MovieDetailsPage';
+import MovieDetailsPage from 'pages/MovieDetailsPage/MovieDetailsPage';
 
 export const App = () => {
   return (
@@ -29,7 +29,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId/*" element={<MovieDetails />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
         </Routes>
       </main>
     </div>

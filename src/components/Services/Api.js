@@ -35,7 +35,7 @@ export const fetchMovieSearch = async q => {
   return data.results;
 };
 
-export const fetchMovieDetails = async movieID => {
+export const fetchMovieDetails = async movieId => {
   const options = {
     method: 'GET',
     headers: {
@@ -44,14 +44,14 @@ export const fetchMovieDetails = async movieID => {
     },
   };
   const { data } = await axios.get(
-    `search/movie?${movieID}&api_key=${API_KEY}&include_adult=false&language=en-US`,
+    `search/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
     options
   );
   console.log(data);
   return data;
 };
 
-export const fetchMovieCredits = async movieID => {
+export const fetchMovieCredits = async movieId => {
   const options = {
     method: 'GET',
     headers: {
@@ -60,14 +60,14 @@ export const fetchMovieCredits = async movieID => {
     },
   };
   const { data } = await axios.get(
-    `search/movie?${movieID}&credits&api_key=${API_KEY}&include_adult=false&language=en-US`,
+    `search/movie?${movieId}&credits&api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
   console.log(data.cast);
   return data.cast;
 };
 
-export const fetchMovieReviews = async movieID => {
+export const fetchMovieReviews = async movieId => {
   const options = {
     method: 'GET',
     headers: {
@@ -77,7 +77,7 @@ export const fetchMovieReviews = async movieID => {
   };
 
   const { data } = await axios.get(
-    `search/movie?${movieID}&reviews&api_key=${API_KEY}&include_adult=false&language=en-US`,
+    `search/movie?${movieId}&reviews&api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
   console.log(data.reviews);

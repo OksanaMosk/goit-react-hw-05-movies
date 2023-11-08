@@ -17,10 +17,22 @@ const TrendingList = ({ movies }) => {
   return (
     <div>
       {movies
-        ? movies.map(({ id, title, name }) => (
-            <NavLink key={id} to={`/movies/${id}`}>
-              <li key={id} to={`/movies/${id}`}>
-                {title ? title : name}
+        ? movies.map(movie => (
+            <NavLink key={movie.id} to={`/movies/${movie.id}`}>
+              <li key={movie.id} to={`/movies/${movie.id}`}>
+                <h4>{movie.title ? movie.title : movie.name}</h4>
+
+                <img
+                  alt={movie.title ? movie.title : movie.name}
+                  width="200"
+                  height="200"
+                  title={movie.title ? movie.title : movie.name}
+                  src={
+                    movie.poster_path
+                      ? `{https://image.tmdb.org/t/p/w200/${movie.poster_path}}`
+                      : null
+                  }
+                />
               </li>
             </NavLink>
           ))
