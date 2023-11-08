@@ -1,30 +1,8 @@
-// import axios from 'axios';
-// import Notiflix from 'notiflix';
+import axios from 'axios';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+const API_KEY = 'b750df2a9f04f9a8c778928f9359c968';
 
-// const BASE_URL = 'https://pixabay.com/api/';
-// const API_KEY = 'b750df2a9f04f9a8c778928f9359c968';
-
-// async function MovieDetails(Searchtitle, id) {
-//   const searchParams = new URLSearchParams({
-//     key: API_KEY,
-//     q: searchPhoto,
-//     page: page,
-//     per_page: 12,
-//     image_type: 'photo',
-//     orientation: 'horizontal',
-//     safesearch: true,
-//   });
-
-//   const response = await axios(`${BASE_URL}?${searchParams}`);
-
-//   if (response.status === 404) {
-//     Notiflix.Notify.failure('Oooops...Some error occured...');
-//     return Promise.reject();
-//   }
-//   return response;
-// }
-
-export const fetchMovieTrendingDay = () => {
+export const fetchMovieTrendingDay = async () => {
   const options = {
     method: 'GET',
     headers: {
@@ -32,18 +10,15 @@ export const fetchMovieTrendingDay = () => {
       //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
     },
   };
-
-  //api.themoviedb.org/3/trending/all/{time_window}
-  fetch(
-    'https://api.themoviedb.org/3/trending/all/day?api_key=b750df2a9f04f9a8c778928f9359c968',
+  const { data } = await axios.get(
+    `trending/all/day?api_key=${API_KEY}`,
     options
-  )
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+  );
+  console.log(data.results);
+  return data.results;
 };
 
-export const fetchMovieSearch = () => {
+export const fetchMovieSearch = async q => {
   const options = {
     method: 'GET',
     headers: {
@@ -52,18 +27,15 @@ export const fetchMovieSearch = () => {
     },
   };
 
-  //   'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1'
-
-  fetch(
-    'https://api.themoviedb.org/3/search/movie?api_key=b750df2a9f04f9a8c778928f9359c968&include_adult=false&language=en-US',
+  const { data } = await axios.get(
+    `search/movie?api_key=${API_KEY}&query=${q}&include_adult=false&language=en-US`,
     options
-  )
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+  );
+  // console.log(data.results);
+  return data.results;
 };
 
-export const fetchMovieDetails = fetghID => {
+export const fetchMovieDetails = async movieID => {
   const options = {
     method: 'GET',
     headers: {
@@ -71,20 +43,15 @@ export const fetchMovieDetails = fetghID => {
       //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
     },
   };
-
-  //
-  //api.themoviedb.org/3/movie/{movie_id}
-
-  fetch(
-    `https://api.themoviedb.org/3/search/movie?${fetghID}&api_key=b750df2a9f04f9a8c778928f9359c968&include_adult=false&language=en-US`,
+  const { data } = await axios.get(
+    `search/movie?${movieID}&api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
-  )
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+  );
+  console.log(data);
+  return data;
 };
 
-export const fetchMovieCredits = fetghID => {
+export const fetchMovieCredits = async movieID => {
   const options = {
     method: 'GET',
     headers: {
@@ -92,19 +59,15 @@ export const fetchMovieCredits = fetghID => {
       //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
     },
   };
-
-  //api.themoviedb.org/3/movie/{movie_id}/credits
-
-  fetch(
-    `https://api.themoviedb.org/3/search/movie?${fetghID}&credits&api_key=b750df2a9f04f9a8c778928f9359c968&include_adult=false&language=en-US`,
+  const { data } = await axios.get(
+    `search/movie?${movieID}&credits&api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
-  )
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+  );
+  console.log(data.cast);
+  return data.cast;
 };
 
-export const fetchMovieReviews = fetghID => {
+export const fetchMovieReviews = async movieID => {
   const options = {
     method: 'GET',
     headers: {
@@ -113,13 +76,10 @@ export const fetchMovieReviews = fetghID => {
     },
   };
 
-  //api.themoviedb.org/3/movie/{movie_id}/credits
-
-  fetch(
-    `https://api.themoviedb.org/3/search/movie?${fetghID}&reviews&api_key=b750df2a9f04f9a8c778928f9359c968&include_adult=false&language=en-US`,
+  const { data } = await axios.get(
+    `search/movie?${movieID}&reviews&api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
-  )
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+  );
+  console.log(data.reviews);
+  return data.reviews;
 };
