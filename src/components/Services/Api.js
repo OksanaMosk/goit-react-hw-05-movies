@@ -44,7 +44,7 @@ export const fetchMovieDetails = async movieId => {
     },
   };
   const { data } = await axios.get(
-    `search/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
+    `movie/${movieId}?api_key=${API_KEY}&language=en-US`,
     options
   );
   console.log(data);

@@ -10,7 +10,7 @@ import Reviews from 'components/Reviews/Reviews';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState(1429);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     fetchMovieDetails(movieId).then(result => {
@@ -29,17 +29,17 @@ const MovieDetails = () => {
         <NavLink to="/movies/:movieId/cast">Cast</NavLink>
         <NavLink to="/movies/:movieId/reviews">Reviews</NavLink>
       </div>
-      {/* <div>
+      <div>
         <p>рідна вставка</p>
-        <h1>About</h1>
+        {/* <h1>About</h1>
         <h2> {title ? title : name}</h2>
         <p>{genres}</p>
         <p>{overview}</p>
         <p>{vote_average}</p>
         <p>{vote_count}</p>
-        <p>{poster_path}</p>
+        <p>{poster_path}</p> */}
         <p>кінець вставки</p>
-      </div> */}
+      </div>
       <div>
         <Routes>
           <Route path="/movies/:movieId/cast" element={<Cast />} />
