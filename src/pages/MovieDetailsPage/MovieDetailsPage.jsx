@@ -9,22 +9,22 @@ import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 
 const MovieDetails = () => {
-  const { movieId } = useParams();
-  const [movie, setMovie] = useState(null);
+  // const { movieId } = useParams();
+  // const [movie, setMovie] = useState(null);
 
-  useEffect(() => {
-    fetchMovieDetails(movieId).then(result => {
-      setMovie(result);
-    });
+  // useEffect(() => {
+  //   fetchMovieDetails(movieId).then(result => {
+  //     setMovie(result);
+  //   });
 
-    // .catch(err => console.error(err));
-  }, [movieId]);
+  //   // .catch(err => console.error(err));
+  // }, [movieId]);
 
-  console.log({ movieId });
+  // console.log({ movieId });
 
   return (
     <div>
-      <AboutItem movie={movie} />
+      {/* <AboutItem movie={movie} /> */}
       <div>
         <NavLink to="/movies/:movieId/cast">Cast</NavLink>
         <NavLink to="/movies/:movieId/reviews">Reviews</NavLink>
