@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Loader from 'components/Loader/Loader';
+import List from 'components/List/List';
 
 const API_KEY = 'b750df2a9f04f9a8c778928f9359c968';
 
@@ -31,8 +32,6 @@ const Movies = () => {
         setIsLoading(true);
         const { data } = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${queryValue}&include_adult=false&language=en-US`
-
-          // https://api.themoviedb.org/3/search/movie?api_key=b750df2a9f04f9a8c778928f9359c968&query=batman&include_adult=false&language=en-US
         );
         setSearchedMovie(data);
       } catch (error) {
@@ -43,6 +42,8 @@ const Movies = () => {
     };
     fetchSearchedMovie();
   }, [queryValue]);
+
+  console.log(searchedMovie);
 
   return (
     <div>
@@ -57,18 +58,30 @@ const Movies = () => {
         </label>
         <button type="submit">Search</button>
       </form>
-      {error !== null && <p>{error}</p>}
+
+      <List movies={searchedMovie} />
+      {/* {error !== null && <p>{error}</p>}
       {isLoading && <Loader />}
-      {searchedMovie !== null
-        ? searchedMovie.map(movie => {
-            return (
-              <div key={movie.id}>
-                <h2>{movie.title}</h2>
-                {/* <code>{movie.body}</code> */}
-              </div>
-            );
-          })
-        : console.log(error)}
+      {searchedMovie !== null &&
+        searchedMovie.map(movies => {
+          return (
+            <ul key={movies.id}>
+              <li>
+                <h4>{movies.title ? movies.title : movies.name}</h4>
+
+                <img
+                  alt={movies.title ? movies.title : movies.name}
+                  title={movies.title ? movies.title : movies.name}
+                  src={
+                    movies.poster_path
+                      ? `https://image.tmdb.org/t/p/w200${movies.poster_path}`
+                      : null
+                  }
+                />
+              </li>
+            </ul>
+          );
+        })} */}
     </div>
   );
 };
