@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 // import { movieId } from 'components/Services/Api';
 import { NavLink, Route, Routes } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import AboutItem from 'components/AboutItem/AboutItem';
-import { fetchMovieDetails } from 'components/Services/Api';
+// import { useEffect } from 'react';
+// import { useState } from 'react';
+// import AboutItem from 'components/AboutItem/AboutItem';
+// import { fetchMovieDetails } from 'components/Services/Api';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 
