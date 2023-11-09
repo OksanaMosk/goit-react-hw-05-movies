@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 const List = ({ searchedMovie }) => {
   //   const { movieId } = useParams();
   //   const [movies, setMovies] = useState([]);
@@ -15,25 +16,27 @@ const List = ({ searchedMovie }) => {
 
   return (
     <div>
-      {searchedMovie
-        ? searchedMovie.map(item => (
-            <ul>
-              <li key={item.id}>
-                <h4>{item.title ? item.title : item.name}</h4>
+      <ul>
+        {searchedMovie
+          ? searchedMovie.map(movie => (
+              <NavLink key={movie.id}>
+                <li key={movie.id}>
+                  <h4>{movie.title ? movie.title : movie.name}</h4>
 
-                <img
-                  alt={item.title ? item.title : item.name}
-                  title={item.title ? item.title : item.name}
-                  src={
-                    item.poster_path
-                      ? `https://image.tmdb.org/t/p/w200${item.poster_path}`
-                      : null
-                  }
-                />
-              </li>
-            </ul>
-          ))
-        : console.log('error')}
+                  <img
+                    alt={movie.title ? movie.title : movie.name}
+                    title={movie.title ? movie.title : movie.name}
+                    src={
+                      movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+                        : null
+                    }
+                  />
+                </li>
+              </NavLink>
+            ))
+          : console.log('error')}
+      </ul>
     </div>
   );
 };
