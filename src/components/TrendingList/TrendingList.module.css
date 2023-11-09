@@ -1,0 +1,23 @@
+.trandingItems {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.everyTitle {
+  max-width: 200;
+  font-size: 28px;
+  color: rgb(81, 78, 78);
+  margin: 0, auto;
+  text-align: center;
+}
+.everyItem {
+  list-style: none;
+  text-decoration: none;
+}
+.everyImg {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}

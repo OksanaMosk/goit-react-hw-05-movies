@@ -3,6 +3,7 @@ import { useState } from 'react';
 // import { useParams } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 // import axios from 'axios';
+import css from './MoviesHomePage.module.css';
 import { fetchMovieTrendingDay } from 'components/Services/Api';
 import TrendingList from 'components/TrendingList/TrendingList';
 
@@ -20,7 +21,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Trending today</h1>
+      <h1 className={css.homeTitle}>Trending today</h1>
       <TrendingList movies={movies} />
     </div>
   );

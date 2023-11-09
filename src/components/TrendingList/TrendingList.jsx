@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import css from './TrendingList.module.css';
 const TrendingList = ({ movies }) => {
   //   const { movieId } = useParams();
   //   const [movies, setMovies] = useState([]);
@@ -15,19 +16,26 @@ const TrendingList = ({ movies }) => {
   //   }, []);
 
   return (
-    <div>
+    <div className={css.trandingItems}>
       {movies
         ? movies.map(movie => (
-            <NavLink key={movie.id} to={`/movies/${movie.id}`}>
+            <NavLink
+              className={css.everyItem}
+              key={movie.id}
+              to={`/movies/${movie.id}`}
+            >
               <li>
-                <h4>{movie.title ? movie.title : movie.name}</h4>
+                <h4 className={css.everyTitle}>
+                  {movie.title ? movie.title : movie.name}
+                </h4>
 
                 <img
+                  className={css.everyImg}
                   alt={movie.title ? movie.title : movie.name}
                   title={movie.title ? movie.title : movie.name}
                   src={
                     movie.poster_path
-                      ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+                      ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
                       : null
                   }
                 />
