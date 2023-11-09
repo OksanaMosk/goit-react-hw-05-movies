@@ -14,7 +14,7 @@ export const fetchMovieTrendingDay = async () => {
     `trending/all/day?api_key=${API_KEY}`,
     options
   );
-  console.log(data.results);
+
   return data.results;
 };
 
@@ -31,7 +31,7 @@ export const fetchMovieSearch = async q => {
     `search/movie?api_key=${API_KEY}&query=${q}&include_adult=false&language=en-US`,
     options
   );
-  // console.log(data.results);
+  console.log(data.results);
   return data.results;
 };
 
@@ -63,7 +63,7 @@ export const fetchMovieCredits = async movieId => {
     `search/movie?${movieId}&credits&api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
-  console.log(data.cast);
+
   return data.cast;
 };
 
@@ -80,6 +80,6 @@ export const fetchMovieReviews = async movieId => {
     `search/movie?${movieId}&reviews&api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
-  console.log(data.reviews);
-  return data.reviews;
+  console.log(data.results);
+  return data.results;
 };

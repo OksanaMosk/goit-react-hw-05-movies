@@ -21,9 +21,6 @@ export const App = () => {
         <NavLink className={css.headerLink} to="/movies">
           Movies
         </NavLink>
-        {/* <NavLink className={css.headerLink} to="/movies/:movieId/*">
-          MovieDetails
-        </NavLink> */}
       </header>
       <main>
         <Routes>

@@ -33,7 +33,7 @@ const Movies = () => {
         const { data } = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${queryValue}&include_adult=false&language=en-US`
         );
-        setSearchedMovie(data);
+        setSearchedMovie(data.results);
       } catch (error) {
         // setError(error.message);
       } finally {
