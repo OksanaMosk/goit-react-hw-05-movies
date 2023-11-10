@@ -5,10 +5,9 @@ const List = ({ movies }) => {
       <ul>
         {movies
           ? movies.map(movie => (
-              <NavLink key={movie.id}>
+              <NavLink to={`/movies/${movie.id}`} key={movie.id}>
                 <li key={movie.id}>
                   <h4>{movie.title ? movie.title : movie.name}</h4>
-
                   <img
                     alt={movie.title ? movie.title : movie.name}
                     title={movie.title ? movie.title : movie.name}

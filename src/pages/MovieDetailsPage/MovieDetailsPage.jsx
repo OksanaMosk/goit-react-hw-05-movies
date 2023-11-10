@@ -25,8 +25,8 @@ const MovieDetails = () => {
     <div>
       {/* <AboutItem movie={movie} /> */}
       <div>
-        <NavLink to="/movies/:{movieId}/cast">Cast</NavLink>
-        <NavLink to="/movies/:movieId/reviews">Reviews</NavLink>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
       </div>
       <div>
         <p>рідна вставка</p>
@@ -39,27 +39,16 @@ const MovieDetails = () => {
         <p>{movie.poster_path}</p>
         {/* <p>кінець вставки</p> */}
       </div>
+
       <div>
         <Routes>
-          <Route path="/movies/:movieId/cast" element={<Cast />} />
-          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Routes>
       </div>
+      {/* <Cast />
+      <Reviews /> */}
     </div>
   );
 };
 export default MovieDetails;
-
-// useEffect(() => {
-//   const fetchMovieDetails = async () => {
-//     try {
-//       const { result } = await axios.get(
-//         `https://api.themoviedb.org/3/movie/${movieId}?api_key=b750df2a9f04f9a8c778928f9359c968&language=en-US`
-//       );
-//       setMovie(result);
-//     } catch (error) {
-//     } finally {
-//     }
-//   };
-//   fetchMovieDetails();
-// }, [movie, movieId]);

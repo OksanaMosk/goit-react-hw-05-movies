@@ -60,10 +60,10 @@ export const fetchMovieCredits = async movieId => {
     },
   };
   const { data } = await axios.get(
-    `search/movie?${movieId}&credits&api_key=${API_KEY}&include_adult=false&language=en-US`,
+    `movie/${movieId}/credits?api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
-
+  console.log(data.cast);
   return data.cast;
 };
 
@@ -77,7 +77,7 @@ export const fetchMovieReviews = async movieId => {
   };
 
   const { data } = await axios.get(
-    `search/movie?${movieId}&reviews&api_key=${API_KEY}&include_adult=false&language=en-US`,
+    `movie/${movieId}/reviews?api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
   console.log(data.results);

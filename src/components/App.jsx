@@ -1,4 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
+
 // import {
 //   fetchMovieSearch,
 //   fetchMovieTrendingDay,
