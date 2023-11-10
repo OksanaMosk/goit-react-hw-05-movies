@@ -1,3 +1,41 @@
-li {
-  font-size: 30px;
+.formSearch {
+  text-align: center;
+}
+.inputButton {
+  display: inline-block;
+  width: 70px;
+  height: 44px;
+  border: #1c1c1d;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-color: #1c1c1d;
+  color: #e0e6eb;
+  padding-block-end: 0;
+  padding-block-start: 0;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.input {
+  height: 40px;
+  padding-left: 10px;
+  display: inline-block;
+  width: 500px;
+  font-size: 18px;
+  padding-right: 4px;
+  border-radius: 10px;
+  border: #1c1c1d;
+  background-color: #e0e6eb;
+}
+
+.input::placeholder {
+  border: #1c1c1d;
+  padding-left: 0;
+  font: inherit;
+  font-size: 18px;
+  color: #1c1c1d;
 }

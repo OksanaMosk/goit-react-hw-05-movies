@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { fetchMovieCredits } from '../Services/Api';
+import NoPhoto from '../../img/NoPhoto.png';
+import css from './Cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -21,23 +23,28 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <ul>
+    <ul className={css.cast}>
       {cast.map(({ id, profile_path, original_name, character }) => (
-        <li key={id}>
+        <li className={css.castLink} key={id}>
           <img
+            width={200}
+            height={280}
+            className={css.castImg}
             src={
               profile_path
                 ? `https://image.tmdb.org/t/p/w200${profile_path}`
-                : null
+                : NoPhoto
             }
             alt={original_name}
           />
-          <p>
-            <span> Actor:</span> {original_name}
-          </p>
-          <p>
-            <span>Character:</span> {character}
-          </p>
+          <div className={css.castAbout}>
+            <p className={css.castName}>
+              <span> Actor:</span> {original_name}
+            </p>
+            <p className={css.character}>
+              <span>Character:</span> {character}
+            </p>
+          </div>
         </li>
       ))}
     </ul>

@@ -1,12 +1,4 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-
-// import {
-//   fetchMovieSearch,
-//   fetchMovieTrendingDay,
-// fetchMovieDetails,
-//   fetchMovieCredits,
-//   fetchMovieReviews,
-// } from './Services/Api.js';
 import css from './App.module.css';
 import Home from 'pages/Home/Home';
 import Movies from 'pages/Movies/Movies';
@@ -33,9 +25,3 @@ export const App = () => {
     </div>
   );
 };
-
-// console.log(fetchMovieTrendingDay());
-// console.log(fetchMovieSearch());
-// console.log(fetchMovieDetails());
-// console.log(fetchMovieCredits());
-// console.log(fetchMovieReviews());

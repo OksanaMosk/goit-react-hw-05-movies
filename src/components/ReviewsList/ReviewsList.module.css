@@ -1,0 +1,11 @@
+.reviewList {
+  list-style: none;
+  font-size: 18px;
+}
+.reviewAutor {
+  color: rgb(50, 50, 53);
+}
+
+.reviewText {
+  color: rgb(63, 63, 67);
+}

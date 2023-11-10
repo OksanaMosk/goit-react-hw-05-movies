@@ -1,20 +1,17 @@
-// import css from './MoviesPage.module.css';
-// import { Link, useParams } from 'react-router-dom';
-
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-// import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import List from 'components/List/List';
-
+import css from './Movies.module.css';
+import Notiflix from 'notiflix';
 const API_KEY = 'b750df2a9f04f9a8c778928f9359c968';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchedMovie, setSearchedMovie] = useState(null);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const queryValue = searchParams.get('query');
   console.log('queryValue:', queryValue);
 
@@ -29,59 +26,48 @@ const Movies = () => {
     if (!queryValue) return;
     const fetchSearchedMovie = async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const { data } = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${queryValue}&include_adult=false&language=en-US`
         );
         setSearchedMovie(data.results);
+        if (data.results.length === 0) {
+          setSearchParams();
+          setSearchedMovie('');
+
+          Notiflix.Notify.failure('There are no films. Please try again.');
+          return;
+        }
       } catch (error) {
-        // setError(error.message);
+        setError(error.message);
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     fetchSearchedMovie();
-  }, [queryValue]);
+  }, [queryValue, setSearchParams]);
 
   console.log(searchedMovie);
 
   return (
     <div>
-      <form onSubmit={onFormSubmit}>
+      <form className={css.formSearch} onSubmit={onFormSubmit}>
         <label>
           <input
+            className={css.input}
             type="text"
             name="searchKey"
             required
             placeholder="name of film"
           ></input>
         </label>
-        <button type="submit">Search</button>
+        <button className={css.inputButton} type="submit">
+          Search
+        </button>
       </form>
 
-      <List movies={searchedMovie} />
-      {/* {error !== null && <p>{error}</p>}
       {isLoading && <Loader />}
-      {searchedMovie !== null &&
-        searchedMovie.map(movies => {
-          return (
-            <ul key={movies.id}>
-              <li>
-                <h4>{movies.title ? movies.title : movies.name}</h4>
-
-                <img
-                  alt={movies.title ? movies.title : movies.name}
-                  title={movies.title ? movies.title : movies.name}
-                  src={
-                    movies.poster_path
-                      ? `https://image.tmdb.org/t/p/w200${movies.poster_path}`
-                      : null
-                  }
-                />
-              </li>
-            </ul>
-          );
-        })} */}
+      {!error && <List movies={searchedMovie} />}
     </div>
   );
 };

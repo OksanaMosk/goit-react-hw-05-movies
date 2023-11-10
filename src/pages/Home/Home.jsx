@@ -1,28 +1,27 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-// import axios from 'axios';
-import css from './Home.module.css';
-import { fetchMovieTrendingDay } from 'components/Services/Api';
 import TrendingList from 'components/TrendingList/TrendingList';
+import { useState, useEffect } from 'react';
+import { fetchMovieTrendingDay } from 'components/Services/Api';
+import Loader from 'components/Loader/Loader';
+import css from './Home.module.css';
 
 const Home = () => {
-  //   const { movieId } = useParams();
   const [movies, setMovies] = useState([]);
-  //   //   const [error, setError] = useState(null);
-  //   //   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchMovieTrendingDay()
       .then(data => setMovies(data))
-      .catch(err => console.error(err));
+      .catch(setError)
+      .finally(setIsLoading(false));
   }, []);
 
   return (
     <div>
       <h1 className={css.homeTitle}>Trending today</h1>
-      <TrendingList movies={movies} />
+      {isLoading && <Loader />}
+      {!error && <TrendingList movies={movies} />}
     </div>
   );
 };

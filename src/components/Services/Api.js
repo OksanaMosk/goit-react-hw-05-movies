@@ -7,7 +7,6 @@ export const fetchMovieTrendingDay = async () => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
     },
   };
   const { data } = await axios.get(
@@ -18,29 +17,11 @@ export const fetchMovieTrendingDay = async () => {
   return data.results;
 };
 
-export const fetchMovieSearch = async q => {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
-    },
-  };
-
-  const { data } = await axios.get(
-    `search/movie?api_key=${API_KEY}&query=${q}&include_adult=false&language=en-US`,
-    options
-  );
-  console.log(data.results);
-  return data.results;
-};
-
 export const fetchMovieDetails = async movieId => {
   const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
     },
   };
   const { data } = await axios.get(
@@ -56,7 +37,6 @@ export const fetchMovieCredits = async movieId => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
     },
   };
   const { data } = await axios.get(
@@ -72,7 +52,6 @@ export const fetchMovieReviews = async movieId => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      //   Authorization: 'Bearer b750df2a9f04f9a8c778928f9359c968',
     },
   };
 
