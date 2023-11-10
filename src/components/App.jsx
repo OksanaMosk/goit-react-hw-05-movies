@@ -8,9 +8,9 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 //   fetchMovieReviews,
 // } from './Services/Api.js';
 import css from './App.module.css';
-import Home from 'pages/MoviesHomePage/MoviesHomePage';
-import Movies from 'pages/MoviesPage/MoviesPage';
-import MovieDetailsPage from 'pages/MovieDetailsPage/MovieDetailsPage';
+import Home from 'pages/Home/Home';
+import Movies from 'pages/Movies/Movies';
+import Details from 'pages/Details/Details';
 
 export const App = () => {
   return (
@@ -23,11 +23,11 @@ export const App = () => {
           Movies
         </NavLink>
       </header>
-      <main>
+      <main className={css.main}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
+          <Route path="/movies/:movieId/*" element={<Details />} />
         </Routes>
       </main>
     </div>

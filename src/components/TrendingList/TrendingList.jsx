@@ -25,20 +25,19 @@ const TrendingList = ({ movies }) => {
               to={`/movies/${movie.id}`}
             >
               <li>
-                <h4 className={css.everyTitle}>
-                  {movie.title ? movie.title : movie.name}
-                </h4>
-
                 <img
                   className={css.everyImg}
                   alt={movie.title ? movie.title : movie.name}
                   title={movie.title ? movie.title : movie.name}
                   src={
                     movie.poster_path
-                      ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+                      ? `https://image.tmdb.org/t/p/w400${movie.poster_path}`
                       : null
                   }
                 />
+                <h4 className={css.everyTitle}>
+                  {movie.title ? movie.title : movie.name}
+                </h4>
               </li>
             </NavLink>
           ))

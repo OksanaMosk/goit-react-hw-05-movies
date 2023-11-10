@@ -3,7 +3,7 @@ import { useState } from 'react';
 // import { useParams } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 // import axios from 'axios';
-import css from './MoviesHomePage.module.css';
+import css from './Home.module.css';
 import { fetchMovieTrendingDay } from 'components/Services/Api';
 import TrendingList from 'components/TrendingList/TrendingList';
 

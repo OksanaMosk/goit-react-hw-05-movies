@@ -22,8 +22,13 @@
 
 .headerLink:focus,
 .headerLink:hover {
-  color: rgb(207, 180, 130);
+  color: rgb(241, 203, 131);
 }
 .headerLink:active {
   color: orange;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
 }
