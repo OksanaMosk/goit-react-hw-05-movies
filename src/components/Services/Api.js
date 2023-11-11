@@ -28,7 +28,7 @@ export const fetchMovieDetails = async movieId => {
     `movie/${movieId}?api_key=${API_KEY}&language=en-US`,
     options
   );
-  console.log(data);
+
   return data;
 };
 
@@ -43,7 +43,7 @@ export const fetchMovieCredits = async movieId => {
     `movie/${movieId}/credits?api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
-  console.log(data.cast);
+
   return data.cast;
 };
 
@@ -59,6 +59,6 @@ export const fetchMovieReviews = async movieId => {
     `movie/${movieId}/reviews?api_key=${API_KEY}&include_adult=false&language=en-US`,
     options
   );
-  console.log(data.results);
+
   return data.results;
 };

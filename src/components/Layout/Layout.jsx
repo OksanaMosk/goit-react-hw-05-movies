@@ -1,6 +1,8 @@
 import React from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+
 import css from './Layout.module.css';
+
 const Layout = ({ children }) => {
   return (
     <div>

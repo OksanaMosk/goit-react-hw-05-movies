@@ -1,9 +1,8 @@
-// import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchMovieCredits } from '../Services/Api';
 import NoPhoto from '../../img/NoPhoto.png';
+
 import css from './Cast.module.css';
 
 const Cast = () => {
@@ -15,9 +14,7 @@ const Cast = () => {
       try {
         const cast = await fetchMovieCredits(movieId);
         setCast(cast);
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     };
     fetchCast();
   }, [movieId]);

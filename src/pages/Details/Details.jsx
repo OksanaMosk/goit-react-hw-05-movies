@@ -1,13 +1,14 @@
 import { Link, useParams } from 'react-router-dom';
 import { NavLink, Route, Routes } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { fetchMovieDetails } from 'components/Services/Api';
 import NoImage from '../../img/NoImage.png';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 import Loader from 'components/Loader/Loader';
-import css from './Details.module.css';
 import { useLocation } from 'react-router-dom';
+
+import css from './Details.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -81,10 +82,12 @@ const MovieDetails = () => {
             </div>
           </div>
           <div className={css.cast}>
-            <Routes>
-              <Route path="cast" element={<Cast />} />
-              <Route path="reviews" element={<Reviews />} />
-            </Routes>
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route path="cast" element={<Cast />} />
+                <Route path="reviews" element={<Reviews />} />
+              </Routes>
+            </Suspense>
           </div>
         </div>
       )}

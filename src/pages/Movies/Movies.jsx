@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import List from 'components/List/List';
-import css from './Movies.module.css';
+
 import Notiflix from 'notiflix';
+import css from './Movies.module.css';
 
 const API_KEY = 'b750df2a9f04f9a8c778928f9359c968';
 
@@ -14,13 +15,11 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const queryValue = searchParams.get('query');
-  console.log('queryValue:', queryValue);
 
   const onFormSubmit = e => {
     e.preventDefault();
     const value = e.currentTarget.elements.searchKey.value;
     setSearchParams({ query: value });
-    console.log('value:', value);
   };
 
   useEffect(() => {
@@ -47,8 +46,6 @@ const Movies = () => {
     };
     fetchSearchedMovie();
   }, [queryValue, setSearchParams]);
-
-  console.log(searchedMovie);
 
   return (
     <div>

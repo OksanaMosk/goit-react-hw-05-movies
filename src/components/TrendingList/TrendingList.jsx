@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import css from './TrendingList.module.css';
 import NoImage from '../../img/NoImage.png';
+
+import css from './TrendingList.module.css';
 
 const TrendingList = ({ movies }) => {
   return (
@@ -31,7 +32,7 @@ const TrendingList = ({ movies }) => {
               </li>
             </NavLink>
           ))
-        : console.log('error')}
+        : null}
     </div>
   );
 };

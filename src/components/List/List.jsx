@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import css from './List.module.css';
 import NoImage from '../../img/NoImage.png';
 import { useLocation } from 'react-router-dom';
+
+import css from './List.module.css';
 
 const List = ({ movies }) => {
   const location = useLocation();
@@ -33,7 +34,7 @@ const List = ({ movies }) => {
                 </li>
               </NavLink>
             ))
-          : console.log('error')}
+          : null}
       </ul>
     </div>
   );

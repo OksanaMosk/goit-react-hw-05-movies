@@ -4,6 +4,7 @@ import { fetchMovieTrendingDay } from 'components/Services/Api';
 import Loader from 'components/Loader/Loader';
 
 import css from './Home.module.css';
+
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);

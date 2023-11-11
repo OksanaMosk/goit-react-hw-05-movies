@@ -10,7 +10,7 @@ const ReviewsList = ({ reviews }) => {
               <p className={css.reviewText}>{review.content}</p>
             </li>
           ))
-        : console.log('error')}
+        : null}
     </ul>
   );
 };
