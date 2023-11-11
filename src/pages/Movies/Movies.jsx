@@ -5,6 +5,7 @@ import Loader from 'components/Loader/Loader';
 import List from 'components/List/List';
 import css from './Movies.module.css';
 import Notiflix from 'notiflix';
+
 const API_KEY = 'b750df2a9f04f9a8c778928f9359c968';
 
 const Movies = () => {

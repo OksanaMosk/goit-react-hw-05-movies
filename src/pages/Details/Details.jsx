@@ -1,18 +1,22 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { NavLink, Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { fetchMovieDetails } from 'components/Services/Api';
 import NoImage from '../../img/NoImage.png';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 import Loader from 'components/Loader/Loader';
 import css from './Details.module.css';
+import { useLocation } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+
+  const backLinkRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     setIsLoading(true);
@@ -26,6 +30,9 @@ const MovieDetails = () => {
 
   return (
     <div className={css.containerDetails}>
+      <Link className={css.backHome} to={backLinkRef.current}>
+        Go back
+      </Link>
       {isLoading && <Loader />}
       {!error && (
         <div className={css.partsDetails}>
@@ -62,7 +69,7 @@ const MovieDetails = () => {
             </p>
             <p className={css.details}>
               <span className={css.mainDetails}>Log line: </span>
-              {movie.overview}Log line
+              {movie.overview}
             </p>
             <div className={css.nav}>
               <NavLink className={css.navLinkDetails} to="cast">

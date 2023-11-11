@@ -1,14 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import css from './List.module.css';
 import NoImage from '../../img/NoImage.png';
+import { useLocation } from 'react-router-dom';
 
 const List = ({ movies }) => {
+  const location = useLocation();
   return (
     <div>
       <ul className={css.trandingItems}>
         {movies
           ? movies.map(movie => (
               <NavLink
+                state={{ from: location }}
                 className={css.everyItem}
                 to={`/movies/${movie.id}`}
                 key={movie.id}

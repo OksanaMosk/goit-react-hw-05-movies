@@ -2,8 +2,8 @@ import TrendingList from 'components/TrendingList/TrendingList';
 import { useState, useEffect } from 'react';
 import { fetchMovieTrendingDay } from 'components/Services/Api';
 import Loader from 'components/Loader/Loader';
-import css from './Home.module.css';
 
+import css from './Home.module.css';
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -20,6 +20,7 @@ const Home = () => {
   return (
     <div>
       <h1 className={css.homeTitle}>Trending today</h1>
+
       {isLoading && <Loader />}
       {!error && <TrendingList movies={movies} />}
     </div>

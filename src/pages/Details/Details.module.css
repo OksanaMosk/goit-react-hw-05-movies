@@ -111,3 +111,18 @@
   justify-content: center;
   align-items: center;
 }
+.backHome {
+  display: flex;
+  position: absolute;
+  left: 70px;
+  top: 100px;
+  color: rgb(50, 50, 53);
+  background-color: orange;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
