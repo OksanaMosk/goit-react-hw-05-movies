@@ -114,8 +114,8 @@
 .backHome {
   display: flex;
   position: absolute;
-  left: 70px;
-  top: 100px;
+  left: 10px;
+  top: 60px;
   color: rgb(50, 50, 53);
   background-color: orange;
   border-radius: 10px;
