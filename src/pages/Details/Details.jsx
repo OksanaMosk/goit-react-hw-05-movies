@@ -29,8 +29,6 @@ const MovieDetails = () => {
       .finally(setIsLoading(false));
   }, [movieId]);
 
-  const maxLength = 500;
-
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) {
       return text;
