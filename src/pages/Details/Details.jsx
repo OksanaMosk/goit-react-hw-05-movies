@@ -29,6 +29,20 @@ const MovieDetails = () => {
       .finally(setIsLoading(false));
   }, [movieId]);
 
+  const maxLength = 500;
+
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    const truncatedText = text.substring(0, maxLength);
+    const lastSentenceIndex = truncatedText.lastIndexOf('.');
+
+    return lastSentenceIndex !== -1
+      ? truncatedText.substring(0, lastSentenceIndex + 1)
+      : truncatedText;
+  };
+
   return (
     <div className={css.containerDetails}>
       <Link className={css.backHome} to={backLinkRef.current}>
@@ -68,10 +82,16 @@ const MovieDetails = () => {
                 <span> No reviews yet </span>
               )}
             </p>
-            <p className={css.details}>
-              <span className={css.mainDetails}>Log line: </span>
-              {movie.overview}
-            </p>
+
+            {movie && movie.overview && movie.overview.length > 600 ? (
+              <p className={css.details}>
+                <span className={css.mainDetails}>Log line: </span>
+                {truncateText(movie.overview, 600)}
+              </p>
+            ) : (
+              <div className={css.details}>{movie && movie.overview}</div>
+            )}
+
             <div className={css.nav}>
               <NavLink className={css.navLinkDetails} to="cast">
                 Cast
