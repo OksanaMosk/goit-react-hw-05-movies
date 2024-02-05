@@ -15,8 +15,7 @@
   flex-wrap: wrap;
   position: relative;
   align-items: flex-start;
-  justify-content: center;
-  align-items: center;
+
   list-style: none;
 }
 
@@ -36,6 +35,7 @@
     10px 10px 7px -2px rgba(0, 0, 0, 0.12);
 }
 .castAbout {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   position: absolute;
@@ -45,26 +45,28 @@
   margin-block-start: 0px;
   color: white;
   font-size: 12px;
-  padding-left: 10px;
   background-color: rgb(50, 50, 53, 0.8);
   border-radius: 0px 0px 20px 20px;
-
   box-shadow: 10px 10px 7px -2px rgba(0, 0, 0, 0.12),
     10px 10px 7px -2px rgba(0, 0, 0, 0.14),
     10px 10px 7px -2px rgba(0, 0, 0, 0.12);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  flex-direction: column;
 }
 .castName {
-  max-width: 200px;
   display: flex;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-block-end: 0px;
-  margin-block-start: 0px;
+  padding-left: 10px;
 }
 .character {
-  max-width: 200px;
   display: flex;
-  align-items: flex-start;
   margin-block-end: 0px;
   margin-block-start: 0px;
+  padding-left: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
 }

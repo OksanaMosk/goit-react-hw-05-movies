@@ -1,6 +1,8 @@
 .reviewList {
   list-style: none;
   font-size: 18px;
+  padding-inline-start: 0;
+  margin: 0 30px;
 }
 .reviewAutor {
   color: rgb(50, 50, 53);
