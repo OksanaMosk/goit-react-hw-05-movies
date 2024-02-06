@@ -46,7 +46,7 @@ const MovieDetails = () => {
   const reviewsRef = useRef(null);
 
   const scrollToCast = () => {
-    castRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    castRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   const scrollToReviews = () => {
