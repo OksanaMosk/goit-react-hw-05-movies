@@ -41,6 +41,18 @@ const MovieDetails = () => {
       : truncatedText;
   };
 
+  const ScrollToTop = () => {
+    const topRef = useRef(null);
+
+    useEffect(() => {
+      if (topRef.current) {
+        topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, []);
+
+    return <div ref={topRef} />;
+  };
+
   return (
     <div className={css.containerDetails}>
       <Link className={css.backHome} to={backLinkRef.current}>
@@ -101,6 +113,7 @@ const MovieDetails = () => {
           </div>
           <div className={css.cast}>
             <Suspense fallback={<Loader />}>
+              <ScrollToTop />
               <Routes>
                 <Route path="cast" element={<Cast />} />
                 <Route path="reviews" element={<Reviews />} />
