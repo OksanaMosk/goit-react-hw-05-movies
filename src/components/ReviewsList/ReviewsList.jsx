@@ -1,12 +1,8 @@
-import React, { useRef } from 'react';
-
 import css from './ReviewsList.module.css';
 
 const ReviewsList = ({ reviews }) => {
-  const reviewsRef = useRef(null);
-
   return (
-    <ul className={css.reviewList} ref={reviewsRef}>
+    <ul className={css.reviewList}>
       {reviews
         ? reviews.map(review => (
             <li key={review.id}>

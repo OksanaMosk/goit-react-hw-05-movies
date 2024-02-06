@@ -7,7 +7,6 @@ import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 import Loader from 'components/Loader/Loader';
 import { useLocation } from 'react-router-dom';
-import React from 'react';
 
 import css from './Details.module.css';
 
@@ -40,17 +39,6 @@ const MovieDetails = () => {
     return lastSentenceIndex !== -1
       ? truncatedText.substring(0, lastSentenceIndex + 1)
       : truncatedText;
-  };
-
-  const castRef = useRef(null);
-  const reviewsRef = useRef(null);
-
-  const scrollToCast = () => {
-    castRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-
-  const scrollToReviews = () => {
-    reviewsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -103,18 +91,10 @@ const MovieDetails = () => {
             )}
 
             <div className={css.nav}>
-              <NavLink
-                className={css.navLinkDetails}
-                to="cast"
-                onClick={scrollToCast}
-              >
+              <NavLink className={css.navLinkDetails} to="cast">
                 Cast
               </NavLink>
-              <NavLink
-                className={css.navLinkDetails}
-                to="reviews"
-                onClick={scrollToReviews}
-              >
+              <NavLink className={css.navLinkDetails} to="reviews">
                 Reviews
               </NavLink>
             </div>
@@ -132,5 +112,4 @@ const MovieDetails = () => {
     </div>
   );
 };
-
 export default MovieDetails;
