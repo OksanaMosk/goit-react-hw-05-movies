@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieCredits } from '../Services/Api';
 import NoPhoto from '../../img/NoPhoto.png';
+import React, { useRef } from 'react';
 
 import css from './Cast.module.css';
 
@@ -19,8 +20,10 @@ const Cast = () => {
     fetchCast();
   }, [movieId]);
 
+  const castRef = useRef(null);
+
   return (
-    <ul className={css.cast}>
+    <ul ref={castRef} className={css.cast}>
       {cast.map(({ id, profile_path, original_name, character }) => (
         <li className={css.castLink} key={id}>
           <img

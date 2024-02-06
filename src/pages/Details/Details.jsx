@@ -7,6 +7,7 @@ import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 import Loader from 'components/Loader/Loader';
 import { useLocation } from 'react-router-dom';
+import React from 'react';
 
 import css from './Details.module.css';
 
@@ -41,16 +42,15 @@ const MovieDetails = () => {
       : truncatedText;
   };
 
-  const ScrollToTop = () => {
-    const topRef = useRef(null);
+  const castRef = useRef(null);
+  const reviewsRef = useRef(null);
 
-    useEffect(() => {
-      if (topRef.current) {
-        topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, []);
+  const scrollToCast = () => {
+    castRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
-    return <div ref={topRef} />;
+  const scrollToReviews = () => {
+    reviewsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -103,17 +103,24 @@ const MovieDetails = () => {
             )}
 
             <div className={css.nav}>
-              <NavLink className={css.navLinkDetails} to="cast">
+              <NavLink
+                className={css.navLinkDetails}
+                to="cast"
+                onClick={scrollToCast}
+              >
                 Cast
               </NavLink>
-              <NavLink className={css.navLinkDetails} to="reviews">
+              <NavLink
+                className={css.navLinkDetails}
+                to="reviews"
+                onClick={scrollToReviews}
+              >
                 Reviews
               </NavLink>
             </div>
           </div>
           <div className={css.cast}>
             <Suspense fallback={<Loader />}>
-              <ScrollToTop />
               <Routes>
                 <Route path="cast" element={<Cast />} />
                 <Route path="reviews" element={<Reviews />} />
@@ -125,4 +132,5 @@ const MovieDetails = () => {
     </div>
   );
 };
+
 export default MovieDetails;
