@@ -45,7 +45,7 @@ const MovieDetails = () => {
     const { pathname } = useLocation();
 
     useEffect(() => {
-      window.scrollTo(0, 1200);
+      window.scrollTo(0, 0);
     }, [pathname]);
 
     return null;
