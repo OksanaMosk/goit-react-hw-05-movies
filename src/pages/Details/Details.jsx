@@ -67,12 +67,13 @@ const MovieDetails = () => {
             </h1>
             <p className={css.details}>
               <span className={css.mainDetails}>Release date: </span>
+              &nbsp;&nbsp;
               {movie.release_date}
             </p>
             <p className={css.details}>
               {movie.vote_average !== 0 ? (
                 <>
-                  <span className={css.mainDetails}>Rating: </span>
+                  <span className={css.mainDetails}>Rating: </span> &nbsp;&nbsp;
                   <span>{movie.vote_average} </span>
                   <span>(based on {movie.vote_count} reviews)</span>
                 </>
@@ -102,8 +103,12 @@ const MovieDetails = () => {
           <div className={css.cast}>
             <Suspense fallback={<Loader />}>
               <Routes>
-                <Route path="cast" element={<Cast />} />
-                <Route path="reviews" element={<Reviews />} />
+                <Route path="cast" element={<Cast />} id="cast-anchor" />
+                <Route
+                  path="reviews"
+                  element={<Reviews />}
+                  id="reviews-anchor"
+                />
               </Routes>
             </Suspense>
           </div>
