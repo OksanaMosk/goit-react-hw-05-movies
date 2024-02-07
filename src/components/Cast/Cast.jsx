@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieCredits } from '../Services/Api';
 import NoPhoto from '../../img/NoPhoto.png';
-
+import { useRef } from 'react';
 import css from './Cast.module.css';
 
 const Cast = () => {
@@ -19,8 +19,16 @@ const Cast = () => {
     fetchCast();
   }, [movieId]);
 
+  const castRef = useRef(null);
+
+  useEffect(() => {
+    if (castRef.current) {
+      castRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   return (
-    <ul className={css.cast}>
+    <ul className={css.cast} ref={castRef}>
       {cast.map(({ id, profile_path, original_name, character }) => (
         <li className={css.castLink} key={id}>
           <img
