@@ -41,6 +41,16 @@ const MovieDetails = () => {
       : truncatedText;
   };
 
+  function ScrollToTop() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+  }
+
   return (
     <div className={css.containerDetails}>
       <Link className={css.backHome} to={backLinkRef.current}>
@@ -103,11 +113,23 @@ const MovieDetails = () => {
           <div className={css.cast}>
             <Suspense fallback={<Loader />}>
               <Routes>
-                <Route path="cast" element={<Cast />} id="cast-anchor" />
+                <Route
+                  path="cast"
+                  element={
+                    <>
+                      <ScrollToTop />
+                      <Cast />
+                    </>
+                  }
+                />
                 <Route
                   path="reviews"
-                  element={<Reviews />}
-                  id="reviews-anchor"
+                  element={
+                    <>
+                      <ScrollToTop />
+                      <Reviews />
+                    </>
+                  }
                 />
               </Routes>
             </Suspense>
